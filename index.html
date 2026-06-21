@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Врач</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_API_ключ&lang=ru_RU" type="text/javascript"></script>
+    <style>
+        #map {
+            width: 100%; 
+            height: 400px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="doctor-text">
+    <div class="doctor-profile">
+        <img src="c:\Users\user\Downloads\gecFBVf9H7U.jpg"alt="Фото врача" class="doctor-avatar">
+        <h3>Абрамов
+‌Шелбик
+‌Александрович
+        </h3>
+    </div>
+    <details class="info-card">
+    <summary>👩‍⚕️ О враче</summary>
+    <ul>
+            <li>Заболеваний связанных с поражением суставов (остеоартрит, патологии мягких тканей, неспецифическая боль в спине, дисфункция височно-нижнечелюстного сустава)</li>
+            <li>➕ Ревматоидный артрит</li>
+            <li>➕ Псориаз, псориатический артрит</li>
+            <li>➕ Спондилоартриты, анкилозирующий спондилит</li>
+            <li>➕ Микрокристаллические артриты, подагра</li>
+            <li>➕ Ревматическая полимиалгия</li>
+            <li>➕ Остеопороз</li>
+            <li>➕ Системная склеродермия</li>
+            <li>➕ Первичный и вторичный феномен Рейно</li>
+            <li>➕ Болезнь/синдром Шегрена</li>
+            <li>➕ Дерматомиозит, полимиозит</li>
+            <li>➕ Системная красная волчанка, АФС</li>
+            <li>➕ Ведение пациентов с хроническими болевыми синдромами, функциональными расстройствами.</li>
+            <li>➕ Фибромиалгия. Хронический миофасциальный болевой синдром. СХУ. СЭД. Болевые синдромы</li>
+            <li>➕ Функциональные заболевания. Расстройства соматических симптомов</li>
+            <li>➕ Заболевания терапевтического профиля</li>
+        </ul>
+    </details>
+<details class="info-card">
+    <summary>📚 Образование</summary>
+    <img id="educationImage"
+         src="c:\Users\user\Downloads\GzLqgNCHTttK4YWTw2kPkdzlUypM3sXCT5erhjPAntsiTLtpX4su0jCiH2aduQ1jW-8jGnHfiY1Gv8x0MmWcGN5g (1).jpg"
+         alt="Образование">
+</details>
+        
+        <details class="info-card">
+            <summary>🎓Стаж работы</summary>
+            <p id="jobDetails">Более 7 лет помогаю пациентам достигать ремиссии и находить причину болей </p>
+        </details>
+
+<details class="info-card">
+    <summary>🔬 Квалификация </summary>
+    <p>
+     📈Постоянно прохожу повышения квалификации, обучения и участвую в конференциях
+    </p>
+</details>
+</div>
+<section class="services">
+    <div class="container">
+        <h2>Услуги</h2>
+        <details class="service-card">
+    <summary>💬 Консультация</summary>
+    <p>Описание консультации</p>
+    <p>Стоимость: 12 000 ₽</p>
+    <a href="payment.html?service=Консультация&price=12000₽" class="pay-btn">
+💳 Оплатить услугу
+</a>
+</details>
+        <details class="service-card">
+    <summary>💻 Онлайн консультация</summary>
+    <p>Описание онлайн-консультации</p>
+    <p>Стоимость: 8 000 ₽</p>
+<a href="payment.html?service=Онлайн консультация&price=8000₽" class="pay-btn">
+💳 Оплатить услугу
+</a>
+</details>
+    <details class="service-card">
+    <summary>🏥 Повторный приём</summary>
+    <p>Описание повторного приёма</p>
+    <p>Стоимость: 6 000 ₽</p>
+   <a href="payment.html?service=Повторный приём&price=6000₽" class="pay-btn">
+💳 Оплатить услугу
+</a>
+</details>
+</div>
+
+<section class="clinic">
+    <div class="container">
+        <h2>Место работы</h2>
+        <img src="c:\Users\user\Downloads\6Ybe_3srgIUmrUGbLNZI-dKYaMUaa2vZm1tVKXAjsUcosGt93NLwI5QycIQolyeXCwVl0J2AkSe5NN2Gzd64VjFV.jpg" alt="Клиника" class="clinic-photo">
+        <p>
+            Дубининская улица, 11 ст2
+        </p>
+        <a href="https://yandex.ru/maps" target="_blank" class="btn">
+            Открыть карту
+        </a>
+        <div id="map"></div>
+    </div>
+</section>
+<section class="reviews">
+    <div class="container">
+        <h2>Отзывы пациентов</h2>
+        <details class="review-card">
+            <summary>📋ОТЗЫВ №1</summary>
+            <p>📝 Информация об отзыве №1...</p>
+        </details>
+        <details class="review-card">
+            <summary>📋ОТЗЫВ №2</summary> 
+            <p>📝Информация об отзыве №2...</p>
+        </details>
+        <details class="review-card">
+            <summary>📋ОТЗЫВ №3</summary>
+            <p>📝Информация об отзыве №3...</p> 
+        </details>
+    </div>
+</section>
+<section class="contact-section">
+    <h2>Контакты</h2>
+    <div class="btn-group">
+
+    <a href="tel:+79520244713">
+        <img src="images\apple-phone.jpg" class="contact-icon">
+    </a>
+
+    <a href="https://t.me/doctor_vishnevak" target="_blank">
+        <img src="c:\Users\user\Downloads\Telegram_logo.svg.png" class="contact-icon">
+    </a>
+
+    <a href="https://vk.ru/syurrializm" target="_blank">
+        <img src="c:\Users\user\Downloads\i (2).webp" class="contact-icon">
+    </a>
+
+    <a href="https://t.me/dr_vishneva" target="_blank">
+        <img src="c:\Users\user\Downloads\банер-телеграмм.jpeg"class="contact-icon">
+    </a>
+
+</div>
+</section>
+<footer>
+    <p>
+        © 2026 Все права защищены
+    </p>
+</footer>
+<script>
+    ymaps.ready(init);
+
+    function init() {
+        const map = new ymaps.Map("map", {
+            center: [55.728034, 37.638441], // Координаты для Дубининская улица, 11 ст2
+            zoom: 16
+        });
+
+        const placemark = new ymaps.Placemark([55.728034, 37.638441], {
+            balloonContent: 'Дубининская улица, 11 ст2'
+        });
+
+        map.geoObjects.add(placemark);
+    }
+</script>
+</body>
+</html>
