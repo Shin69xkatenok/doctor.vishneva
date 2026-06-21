@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Оформление заказа</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    body {
+        background: #f5f7fa;
+    }
+    .payment-container {
+        max-width: 800px;
+        margin: 50px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 48px;
+    }
+    .service-box {
+        background: #f4d64f;
+        padding: 15px 20px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        font-size: 22px;
+    }
+    input {
+        width: 100%;
+        padding: 18px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        font-size: 18px;
+    }
+    .order-btn {
+        width: 100%;
+        padding: 18px;
+        border: none;
+        border-radius: 15px;
+        background: #f4d64f;
+        font-size: 22px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .order-btn:hover {
+        opacity: .9;
+    }
+    .checkbox-group {
+        margin-top: 30px;
+    }
+    .check-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+        font-size: 18px;
+    }
+    .check-item input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+    .check-item span {
+        display: inline;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 15px;
+    }
+    .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close-btn:hover,
+    .close-btn:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="payment-container">
+    <h1>Оформление заказа</h1>
+    <div class="service-box">
+        <span id="serviceName">Консультация</span>
+        <span id="servicePrice">12 000 ₽</span>
+    </div>
+    <form>
+        <input type="email" placeholder="Введите ваш эл. адрес" required>
+        <input type="text" placeholder="Введите ваше имя" required>
+        <input type="tel" placeholder="Введите ваш телефон" required>
+        <button type="button" class="order-btn" onclick="openPayment()">Оформить заказ</button>
+        <div class="checkbox-group">
+            <label class="check-item">
+                <input type="checkbox" required>
+                <span>
+                    Я согласен(а) с условиями
+                    <a href="oferta.html" target="_blank">публичной оферты</a>
+                </span>
+            </label>
+            <label class="check-item">
+                <input type="checkbox" required>
+                <span>
+                    Я согласен(а) с
+                    <a href="privacy-policy.html" target="_blank">политикой обработки персональных данных</a>
+                </span>
+            </label>
+            <label class="check-item">
+                <input type="checkbox" required>
+                <span>
+                    Я согласен(а) на
+                    <a href="personal-data.html" target="_blank">обработку персональных данных</a>
+                </span>
+            </label>
+            <label class="check-item">
+                <input type="checkbox">
+                <span>
+                    Я согласен(а) на
+                    <a href="newsletter.html" target="_blank">рассылку электронных сообщений</a>
+                </span>
+            </label>
+        </div>
+    </form>
+</div>
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closePayment()">&times;</span>
+        <h2>Оплата услуги</h2>
+        <p>Переведите сумму на карту:</p>
+        <div class="card-box">
+            2202 0000 0000 0000
+        </div>
+        <p>Получатель: Вишнёва Марина</p>
+        <button type="button" class="order-btn" onclick="closePayment()">Я оплатил(а)</button>
+    </div>
+</div>
+<script>
+function openPayment() {
+    const modal = document.getElementById("paymentModal");
+    modal.style.display = "block";
+}
+
+function closePayment() {
+    const modal = document.getElementById("paymentModal");
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById("paymentModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
+
+window.onload = function() {
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get("service");
+    const price = params.get("price");
+    if (service) {
+        document.getElementById("serviceName").innerText = service;
+    }
+    if (price) {
+        document.getElementById("servicePrice").innerText = price;
+    }
+}
+</script>
+</body>
+</html>
